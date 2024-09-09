@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Form</title>
+  </head>
+  <body>
+    <h1>New Product</h1>
+    <form>
+      <div>
+        <label for="product-name">Name</label>
+        <input type="text" id="product-name" name="product-name" />
+      </div>
+      <br />
+      <div>
+        <label for="product-price">Price</label>
+        <input type="number" id="product-price" name="product-price" />
+      </div>
+      <br />
+      <div>
+        <label for="product-category">Category</label>
+        <select name="product-category" id="product-category">
+          <option value="medication">Medication</option>
+          <option value="food">Food</option>
+          <option value="hygiene">Hygiene</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label for="product-stock">Stock</label>
+        <input type="number" name="product-stock" id="product-stock" />
+      </div>
+      <br />
+      <div>
+        <label for="terms">
+          <input type="checkbox" id="terms" name="terms" />
+          Requires prescription
+        </label>
+      </div>
+      <br />
+      <div>
+        <label for="product-observations">Details</label>
+        <textarea name="product-details" id="product-details"></textarea>
+      </div>
+      <br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

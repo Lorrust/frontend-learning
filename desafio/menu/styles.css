@@ -1,0 +1,21 @@
+body {
+  background-color: #dddddd;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  color: #444444;
+}
+
+ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 10px;
+}
+
+a {
+  font-size: large;
+  text-decoration: underline;
+  color: #444444;
+}

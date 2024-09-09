@@ -1,0 +1,33 @@
+body {
+  background-color: rgb(37, 37, 37);
+  color: thistle;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  border-bottom: 5px solid thistle;
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  border-bottom: 2px solid thistle;
+}
+
+p {
+  background-color: thistle;
+  color: rgb(37, 37, 37);
+  font-size: large;
+  border-radius: 20px;
+  margin: 15px;
+}
+
+.spacious {
+  padding: 20px;
+}

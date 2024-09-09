@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Example</title>
+  </head>
+  <body>
+    <h1>Form Example</h1>
+    <h2>Sign Up</h2>
+
+    <form>
+      <div>
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" name="user-name" />
+      </div>
+      <br />
+      <div>
+        <label for="user-email">Email</label>
+        <input type="email" id="user-email" name="user-email" />
+      </div>
+      <br />
+      <div>
+        <label for="user-age">Age</label>
+        <input type="number" id="user-age" name="user-age" />
+      </div>
+      <br />
+      <div>
+        <label>Gender</label>
+        <div>
+          <input type="radio" id="male" name="user-gender" />
+          <label>Male</label>
+          <input type="radio" id="female" name="user-gender" />
+          <label>Female</label>
+        </div>
+      </div>
+      <br />
+      <div>
+        <label for="user-profession">Profession</label>
+        <select name="user-profession" id="user-profession">
+          <option value="student">Programmer</option>
+          <option value="teacher">Designer</option>
+          <option value="engineer">Analyst</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label for="user-marital-status">Marital Status</label>
+        <select name="user-marital-status" id="user-marital-status">
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+          <option value="divorced">Divorced</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label for="terms">
+          <input type="checkbox" id="terms" name="terms" />
+          I agree to the terms and conditions
+        </label>
+      </div>
+      <br />
+      <div>
+        <label for="user-observations">Observations</label>
+        <textarea name="user-observations" id="user-observations"></textarea>
+      </div>
+      <br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
