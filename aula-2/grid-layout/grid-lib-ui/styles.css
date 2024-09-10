@@ -1,0 +1,13 @@
+.container {
+  border: 1px solid black;
+}
+
+section {
+  border: 1px solid black;
+  height: 30px;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}

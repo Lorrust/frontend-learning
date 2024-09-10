@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+}
+
+.div1 {
+  background-color: #f1c40f;
+}
+
+.div2 {
+  background-color: #e74c3c;
+}
+
+.div3 {
+  background-color: #3498db;
+}
+
+.div4 {
+  background-color: #9b59b6;
+}

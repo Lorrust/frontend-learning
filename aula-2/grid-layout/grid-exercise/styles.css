@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas:
+    "div1 div1"
+    "div2 div3";
+}
+
+.div-1 {
+  background-color: #f1c40f;
+  grid-area: div1;
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+}
+
+.div-2 {
+  background-color: #e74c3c;
+  grid-area: div2;
+}
+
+.div-3 {
+  background-color: #3498db;
+}
+
+#logo-div {
+  padding: 10px;
+  width: 5%;
+  height: auto;
+}
+
+ul {
+  height: 50px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+}
