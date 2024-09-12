@@ -45,11 +45,30 @@ img {
 
 .title {
   font-size: larger;
+  text-align: center;
 }
 
-.list-container {
+#main-container {
+  width: 400px;
+  margin: auto;
+  border: 1px solid black;
+}
+
+#list-container {
   display: flex;
   flex-direction: column;
+}
+
+.new-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .item {

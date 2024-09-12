@@ -10,6 +10,17 @@
   <body>
     <h1 class="title">Todo List</h1>
     <div id="main-container">
+      <div>
+        <form class="new-item" onsubmit="addItem(event)">
+          <input id="item-input" type="text" />
+          <button type="submit">Add Task</button>
+          <button onclick="clearDone(event)">Clear Done</button>
+        </form>
+        <div class="info">
+          <p id="done-count">Done: 0</p>
+          <p id="todo-count">Remaining: 0</p>
+        </div>
+      </div>
       <div id="list-container">
         <!-- <div class="item">
           <p>Item 1</p>
@@ -21,13 +32,6 @@
           <button onclick="completeTask(event)">Done</button>
           <button onclick="deleteTask(event)">Delete</button>
         </div> -->
-      </div>
-      <div class="new-item">
-        <form onsubmit="addItem(event)">
-          <input id="item-input" type="text" />
-          <button type="submit">Add Task</button>
-        </form>
-        <button onclick="clearDone(event)">Clear Done</button>
       </div>
     </div>
   </body>
