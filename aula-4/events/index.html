@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body onkeydown="keyboardEventLog(event)" onkeyup="keyboardEventLog(event)">
+    <div
+      style="height: 100px; width: 200px; border: 1px solid"
+      onclick="mouseEventLog(event)"
+      ondblclick="mouseEventLog(event)"
+      onmouseenter="mouseEventLog(event)"
+      onmouseleave="mouseEventLog(event)"
+    >
+      <label>Mouse Events</label>
+    </div>
+      <br />
+      <div style="height: 100px; width: 200px; border: 1px solid">
+        <label class="title-div">Keyboard Events</label>
+      </div>
+      <br />
+      <form onsubmit="sendForm(event)">
+       <div>
+        <input type="text" id="name">
+       </div>
+       <br>
+       <div>
+        <input type="number" id="age">
+       </div>
+       <br>
+       <div>
+        <input type="text">
+       </div>
+       <br>
+       <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
