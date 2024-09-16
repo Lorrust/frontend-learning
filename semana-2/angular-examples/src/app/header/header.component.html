@@ -1,0 +1,15 @@
+<section>
+  <div>
+    <h1>{{ title }}</h1>
+  </div>
+  <div id="search-bar">
+    <input
+      [(ngModel)]="search"
+      id="search-input"
+      type="text"
+      placeholder="Search"
+      (blur)="sendSignal()"
+    />
+    <button (click)="sendSignal()">🔎</button>
+  </div>
+</section>

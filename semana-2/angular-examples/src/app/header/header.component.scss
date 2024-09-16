@@ -1,0 +1,36 @@
+section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30%;
+  background-color: bisque;
+  width: 100%;
+}
+
+input {
+  height: 100%;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+#search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: large;
+
+}
+
+#search-input {
+  height: 100%;
+  border-radius: 10px;
+  // border: none;
+}
+
+button {
+  // border: none;
+  background-color: white;
+  border-radius: 50px;
+}

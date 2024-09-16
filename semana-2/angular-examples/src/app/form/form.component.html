@@ -1,0 +1,32 @@
+<section>
+  <div>
+    <div>
+      <label for="name-input">Name</label>
+      <input [(ngModel)]="name" type="text" name="name-input" id="name-input" />
+      {{ name }}
+    </div>
+
+    <div>
+      <label for="email-input">Email</label>
+      <input
+        [(ngModel)]="email"
+        type="email"
+        name="email-input"
+        id="email-input"
+      />
+      {{ email }}
+    </div>
+
+    <div>
+      <label for="phone-input">Phone</label>
+      <input
+        [(ngModel)]="phone"
+        type="number"
+        name="number-input"
+        id="number-input"
+      />
+    </div>
+    {{ phone }}
+  </div>
+  <button (click)="submitForm()">Submit</button>
+</section>
