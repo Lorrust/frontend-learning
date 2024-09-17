@@ -1,0 +1,8 @@
+<div>
+  <app-form (clientAdded)="onClientAdded($event)"></app-form>
+  <app-list
+    [clients]="clients"
+    (clientDeleted)="onClientDeleted($event)"
+    (clientEdited)="onClientEdited($event)"
+  ></app-list>
+</div>

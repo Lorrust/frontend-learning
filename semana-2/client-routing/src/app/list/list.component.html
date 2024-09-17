@@ -1,0 +1,16 @@
+<section>
+  <h2>Registered Clients</h2>
+  <div>
+    <ul id="client-list">
+      <li *ngFor="let client of clients">
+        <div>
+          <span>{{ client.id }}</span>
+          <span>{{ client.name }}</span>
+          <span>{{ client.email }}</span>
+          <button (click)="editClient(client)">Edit</button>
+          <button (click)="deleteClient(client)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

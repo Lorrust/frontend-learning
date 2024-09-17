@@ -1,0 +1,14 @@
+<section>
+  <h2>Client Form</h2>
+  <div>
+    <label for="client-name">Name</label>
+    <input [(ngModel)]="clientForm.name" type="text" id="client-name" />
+  </div>
+  <div>
+    <label for="client-email">Email</label>
+    <input [(ngModel)]="clientForm.email" type="email" id="client-email" />
+  </div>
+  <div>
+    <button (click)="addClient()">Submit</button>
+  </div>
+</section>
