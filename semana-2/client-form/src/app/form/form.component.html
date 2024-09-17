@@ -2,11 +2,11 @@
   <h2>Client Form</h2>
   <div>
     <label for="client-name">Name</label>
-    <input [(ngModel)]="newClient.name" type="text" id="client-name" />
+    <input [(ngModel)]="clientForm.name" type="text" id="client-name" />
   </div>
   <div>
     <label for="client-email">Email</label>
-    <input [(ngModel)]="newClient.email" type="email" id="client-email" />
+    <input [(ngModel)]="clientForm.email" type="email" id="client-email" />
   </div>
   <div>
     <button (click)="addClient()">Submit</button>

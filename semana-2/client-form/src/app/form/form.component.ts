@@ -1,4 +1,3 @@
-// form.component.ts
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Client } from '../../interfaces/client.model';
 
@@ -10,12 +9,14 @@ import { Client } from '../../interfaces/client.model';
 export class FormComponent {
   @Output() clientAdded = new EventEmitter<Client>();
 
-  newClient: Client = { name: '', email: '' };
+  clientForm: Client = { id: 0, name: '', email: '' };
+
+  clientSequence = 0;
 
   addClient() {
-    if (this.newClient.name !== '' || this.newClient.email !== '') {
-    this.clientAdded.emit(this.newClient);
-    this.newClient = { name: '', email: '' }
-    }; // Reset the form
+    if (this.clientForm.name !== '' || this.clientForm.email !== '') {
+      const newClient: Client = { ...this.clientForm, id: this.clientSequence++ };
+      this.clientAdded.emit(newClient);
+    };
   }
 }
