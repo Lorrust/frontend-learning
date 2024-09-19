@@ -2,13 +2,13 @@
   <h2>Product List</h2>
   <div>
     <ul id="list">
-      <li *ngFor="let client of clients">
+      <li *ngFor="let product of products">
         <div>
-          <!-- <span>{{ client.id }}</span> -->
-          <!-- <span>{{ client.name }}</span> -->
-          <!-- <span>{{ client.email }}</span> -->
-          <!-- <button (click)="editClient(client)">Edit</button> -->
-          <!-- <button (click)="deleteClient(client)">Delete</button> -->
+          <span>{{ product.id }}</span>
+          <span>{{ product.name }}</span>
+          <span>{{ product.price }}</span>
+          <button (click)="editProduct(product)">Edit</button>
+          <button (click)="removeProduct(product?.id)">Delete</button>
         </div>
       </li>
     </ul>

@@ -1,14 +1,14 @@
 <section>
   <h2>Create Product</h2>
-  <div>
-    <label for="product-name">Name</label>
-    <!-- <input [(ngModel)]="clientForm.name" type="text" id="client-name" /> -->
-  </div>
-  <div>
-    <label for="product-price">Email</label>
-    <!-- <input [(ngModel)]="clientForm.email" type="email" id="client-email" /> -->
-  </div>
-  <div>
-    <!-- <button (click)="addClient()">Submit</button> -->
-  </div>
+  <form (submit)="registerProduct()">
+    <div>
+      <label for="name">Name</label>
+      <input [(ngModel)]="name" type="text" id="client-name" name="name" />
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <input [(ngModel)]="price" type="number" id="price" name="price" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
 </section>

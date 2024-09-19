@@ -2,13 +2,13 @@
   <h2>User List</h2>
   <div>
     <ul id="list">
-      <li *ngFor="let client of clients">
+      <li *ngFor="let user of users">
         <div>
-          <!-- <span>{{ client.id }}</span> -->
-          <!-- <span>{{ client.name }}</span> -->
-          <!-- <span>{{ client.email }}</span> -->
-          <!-- <button (click)="editClient(client)">Edit</button> -->
-          <!-- <button (click)="deleteClient(client)">Delete</button> -->
+          <span>{{ user.id }}</span>
+          <span>{{ user.name }}</span>
+          <span>{{ user.email }}</span>
+          <button (click)="editUser(user)">Edit</button>
+          <button (click)="removeUser(user?.id)">Delete</button>
         </div>
       </li>
     </ul>
