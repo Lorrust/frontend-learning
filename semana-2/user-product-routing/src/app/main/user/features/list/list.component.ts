@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
   }
 
   editUser(user: User) {
-    this.router.navigate([`/formulario/${user.id}`])
+    this.router.navigate([`/create/${user.id}`])
   }
 
   updateList() {

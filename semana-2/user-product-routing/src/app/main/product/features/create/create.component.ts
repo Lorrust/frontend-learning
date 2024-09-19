@@ -1,48 +1,63 @@
 import { ProductService } from './../../services/product.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../../models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit {
 
-  id?: number;
-  name?: string;
-  price?: number;
+  form!: FormGroup;
+
+  ngOnInit(): void {
+    this.buildForm();
+    this.form.patchValue({ name: 'test', price: 0 });
+  }
 
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private productService: ProductService
-  ) {
+    private productService: ProductService,
+    private formBuilder: FormBuilder) {
     this.activeRoute.params.subscribe(params => {
       const product: Product | undefined = this.productService.findById(params['id']);
       this.editProduct(product);
     });
   }
 
-  registerProduct() {
-  if (this.name && this.price && !this.id) {
-      this.productService.addProduct({ name: this.name, price: this.price });
-    } else if (this.id && this.name && this.price) {
-      this.productService.editProduct({ id: this.id, name: this.name, price: this.price });
-      this.router.navigate(['/listpricem']);
-    }
+  buildForm() {
+    this.form = this.formBuilder.group({
+      name: [null, (Validators.required, this.nameValidation.bind(this))],
+      price: [0, (Validators.required, Validators.min(1))]
+    });
+  }
 
-    this.name = '';
-    this.id = undefined;
-    this.price = undefined;
+  nameValidation(formName: FormGroup) {
+    if (formName.value === 'test') {
+      return { nameValidation: true };
+    }
+    return null;
+  }
+
+  registerProduct() {
+    const product = this.form.getRawValue();
+  if (product && !product.id) {
+      this.productService.addProduct(product);
+    } else if (product && product.id) {
+      this.productService.editProduct(product);
+      this.router.navigate(['/list']);
+    }
+    // Reset form
+    this.form.patchValue({ name: '', price: '' });
   }
 
   editProduct(product?: Product) {
     if (product) {
-      this.id = product.id;
-      this.name = product.name;
-      this.price = product.price;
+      this.form.patchValue(product);
     }
   }
 }

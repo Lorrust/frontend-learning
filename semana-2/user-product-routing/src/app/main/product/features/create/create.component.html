@@ -1,14 +1,16 @@
 <section>
   <h2>Create Product</h2>
-  <form (submit)="registerProduct()">
+  <form [formGroup]="form" (submit)="registerProduct()">
     <div>
       <label for="name">Name</label>
-      <input [(ngModel)]="name" type="text" id="client-name" name="name" />
+      <input formControlName="name" type="text" />
     </div>
     <div>
       <label for="price">Price</label>
-      <input [(ngModel)]="price" type="number" id="price" name="price" />
+      <input formControlName="price" type="number" />
     </div>
-    <button type="submit">Submit</button>
+    <div>
+      <button [disabled]="!form.valid" type="submit">Submit</button>
+    </div>
   </form>
 </section>

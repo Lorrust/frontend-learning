@@ -1,14 +1,16 @@
 <section>
   <h2>Create User</h2>
-  <form (submit)="registerUser()">
+  <form [formGroup]="form" (submit)="registerUser()">
     <div>
       <label for="name">Name</label>
-      <input [(ngModel)]="name" type="text" id="name" name="name" />
+      <input formControlName="name" type="text" />
     </div>
     <div>
       <label for="email">Email</label>
-      <input [(ngModel)]="email" type="email" id="email" name="email" />
+      <input formControlName="email" type="email" />
     </div>
-    <button type="submit">Submit</button>
+    <div>
+      <button [disabled]="!form.valid" type="submit">Submit</button>
+    </div>
   </form>
 </section>

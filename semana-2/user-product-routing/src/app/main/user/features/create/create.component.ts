@@ -1,47 +1,57 @@
 import {UserService } from '../../services/user.service';
 import { User } from '../../../../models/user.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
-export class CreateComponent {
-  id?: number;
-  name?: string;
-  email?: string;
+export class CreateComponent implements OnInit {
+
+  form!: FormGroup;
+
+  ngOnInit(): void {
+    this.buildForm();
+    this.form.patchValue({ name: 'test', email: 'test@email.com' });
+  }
 
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private userService: UserService
-  ) {
+    private userService: UserService,
+    private formBuilder: FormBuilder) {
     this.activeRoute.params.subscribe(params => {
       const user: User | undefined = this.userService.findById(params['id']);
       this.editUser(user);
     });
   }
 
+  buildForm() {
+    this.form = this.formBuilder.group({
+      name: [null, (Validators.required)],
+      email: [null, (Validators.required)],
+      id: [null]
+    });
+  }
+
   registerUser() {
-    if (this.name && this.email && !this.id) {
-      this.userService.addUser({ name: this.name, email: this.email });
-    } else if (this.id && this.name && this.email) {
-      this.userService.editUser({ id: this.id, name: this.name, email: this.email });
+    const user = this.form.getRawValue();
+    if (user && !user.id) {
+      this.userService.addUser(user);
+    } else if (user && user.id) {
+      this.userService.editUser(user);
       this.router.navigate(['/list']);
     }
-
-    this.name = '';
-    this.id = undefined;
-    this.email = undefined;
+    // Reset form
+    this.form.patchValue({ name: '', email: '' });
   }
 
   editUser(user?: User) {
     if (user) {
-      this.id = user.id;
-      this.name = user.name;
-      this.email = user.email;
+      this.form.patchValue(user);
     }
   }
 
