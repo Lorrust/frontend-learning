@@ -1,0 +1,21 @@
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+section {
+  border: 1px solid #e9ecef;
+  margin: 1rem;
+  padding: 1rem;
+  overflow: auto;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+}

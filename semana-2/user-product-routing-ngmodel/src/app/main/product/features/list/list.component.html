@@ -1,0 +1,17 @@
+<section>
+  <h2>Product List</h2>
+  <div>
+    <ul id="list">
+      <p *ngIf="products.length == 0">No Products Registered</p>
+      <li *ngFor="let product of products">
+        <div>
+          <span>{{ product.id }}</span>
+          <span>{{ product.name }}</span>
+          <span>{{ product.price }}</span>
+          <button (click)="editProduct(product)">Edit</button>
+          <button (click)="removeProduct(product?.id)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

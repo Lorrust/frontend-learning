@@ -1,0 +1,14 @@
+<section>
+  <h2>Create Product</h2>
+  <form (submit)="registerProduct()">
+    <div>
+      <label for="name">Name</label>
+      <input [(ngModel)]="name" type="text" id="client-name" name="name" />
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <input [(ngModel)]="price" type="number" id="price" name="price" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</section>

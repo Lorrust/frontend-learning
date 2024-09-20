@@ -1,0 +1,14 @@
+<section>
+  <h2>Create User</h2>
+  <form (submit)="registerUser()">
+    <div>
+      <label for="name">Name</label>
+      <input [(ngModel)]="name" type="text" id="name" name="name" />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input [(ngModel)]="email" type="email" id="email" name="email" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</section>

@@ -1,0 +1,17 @@
+<section>
+  <h2>User List</h2>
+  <div>
+    <ul id="list">
+      <p *ngIf="users.length == 0">No Users Registered</p>
+      <li *ngFor="let user of users">
+        <div>
+          <span>{{ user.id }}</span>
+          <span>{{ user.name }}</span>
+          <span>{{ user.email }}</span>
+          <button (click)="editUser(user)">Edit</button>
+          <button (click)="removeUser(user?.id)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
