@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.updateList();
@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
   }
 
   editProduct(product: Product) {
-    this.router.navigate([`/create/${product.id}`])
+    this.router.navigate([`/product/create/${product.id}`])
   }
 
   updateList() {
