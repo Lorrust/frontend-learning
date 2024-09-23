@@ -1,0 +1,17 @@
+<section>
+  <div id="title-container">
+    <h2>Albums</h2>
+  </div>
+  <section id="container">
+    <section
+      (click)="viewAlbumPhotos(album)"
+      class="album-container"
+      *ngFor="let album of albums"
+    >
+      <div>
+        <p>{{ album.title }}</p>
+        <p>{{ album.id }}</p>
+      </div>
+    </section>
+  </section>
+</section>

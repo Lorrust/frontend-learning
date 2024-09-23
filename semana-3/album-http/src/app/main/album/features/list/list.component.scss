@@ -1,0 +1,12 @@
+.album-container {
+  border: none;
+  gap: 1rem;
+  justify-content: center;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+}
+
+.album-container:hover {
+  transform: scale(1.05);
+  transition: all cubic-bezier(5, 5, 5, 5) 0.3s;
+  cursor: pointer;
+}

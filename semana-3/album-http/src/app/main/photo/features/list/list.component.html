@@ -1,0 +1,13 @@
+<section>
+  <div id="title-container">
+    <h2>Photos</h2>
+  </div>
+  <section id="container">
+    <section class="img-container" *ngFor="let photo of photos">
+      <img [src]="photo.thumbnailUrl" alt="photo.title" />
+      <div>
+        <p>{{ photo.title }}</p>
+      </div>
+    </section>
+  </section>
+</section>
