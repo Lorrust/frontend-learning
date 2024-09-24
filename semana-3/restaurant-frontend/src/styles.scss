@@ -1,0 +1,53 @@
+// CSS Reset
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  // background-color: #0d0f12;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  color:	#0e1111;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+// Styles
+
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+section {
+  border: 1px solid #e9ecef;
+  margin: 1rem;
+  padding: 1rem;
+  overflow: auto;
+}
