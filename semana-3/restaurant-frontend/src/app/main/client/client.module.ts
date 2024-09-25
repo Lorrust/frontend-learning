@@ -1,27 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RestaurantRoutingModule } from './restaurant-routing.module';
+import { ClientRoutingModule } from './client-routing.module';
+import { ClientComponent } from './client.component';
 import { CreateComponent } from './features/create/create.component';
 import { ListComponent } from './features/list/list.component';
-import { RestaurantComponent } from './restaurant.component';
 import { SubmenuComponent } from './components/submenu/submenu.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
+    ClientComponent,
     CreateComponent,
     ListComponent,
-    RestaurantComponent,
     SubmenuComponent
   ],
   imports: [
     CommonModule,
-    RestaurantRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ClientRoutingModule
   ]
 })
-export class RestaurantModule { }
+export class ClientModule { }
