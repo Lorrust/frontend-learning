@@ -1,18 +1,40 @@
 <section>
   <h2>Registered Restaurants</h2>
   <div>
-    <ul id="list">
-      <li>
-        <div>
-          <span>Test Restaurant</span>
-          <span>12309-ASD83</span>
-          <span>Age</span>
-          <span>3 Stars</span>
-          <span>Japanese Food</span>
-          <button>Edit</button>
-          <button>Delete</button>
-        </div>
-      </li>
-    </ul>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>CNPJ</th>
+          <th>Stars</th>
+          <th>Cuisine</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurant of restaurants">
+          <td>{{ restaurant.id }}</td>
+          <td>{{ restaurant.nome }}</td>
+          <td>{{ restaurant.cnpj }}</td>
+          <td>{{ restaurant.estrelas }}</td>
+          <td>{{ restaurant.tipoComida.toLowerCase() }}</td>
+          <td id="actions">
+            <button
+              *ngIf="restaurant.id !== undefined"
+              (click)="editRestaurant(restaurant.id)"
+            >
+              Edit
+            </button>
+            <button
+              *ngIf="restaurant.id !== undefined"
+              (click)="removeRestaurant(restaurant.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

@@ -9,7 +9,8 @@ const routes: Routes = [
     path: '', component: RestaurantComponent, children: [
       { path: '', redirectTo: 'create', pathMatch: 'full' },
       { path: 'list', component: ListComponent, pathMatch: 'full' },
-      { path: 'create', component: CreateComponent, pathMatch: 'full' }
+      { path: 'create', component: CreateComponent, pathMatch: 'full' },
+      { path: 'create/:id', component: CreateComponent, pathMatch: 'full' }
     ]
   },
 ];

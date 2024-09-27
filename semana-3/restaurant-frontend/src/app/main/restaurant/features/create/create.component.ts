@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../../services/restaurant.service';
 import { Restaurant } from '../../../../models/restaurant.model';
@@ -23,43 +23,52 @@ export class CreateComponent {
     private restaurantService: RestaurantService,
     private formBuilder: FormBuilder) {
     this.activeRoute.params.subscribe(params => {
-      const restaurant: Restaurant | undefined = this.restaurantService.findById(params['id']);
-      this.editRestaurant(restaurant);
+      console.log(params);
+      if (params['id']) {
+        this.restaurantService.findById(params['id']).subscribe((restaurant: Restaurant) => {
+          this.editRestaurant(restaurant);
+        });
+      }
     });
   }
 
   buildForm() {
     this.form = this.formBuilder.group({
-      name: [null, (Validators.required)],
-      cnpj: [null, (Validators.required)],
-      stars: [null, (Validators.required)],
-      cuisine: [null, (Validators.required)],
+      id: [null],
+      nome: [null, Validators.required],
+      cnpj: [null, Validators.required],
+      estrelas: [null, [Validators.required, this.starValidation]],
+      tipoComida: [null, (Validators.required)],
 
     });
   }
 
-  nameValidation(formName: FormGroup) {
-    if (formName.value === 'test') {
-      return { nameValidation: true };
+  starValidation(control: FormControl) {
+    const value = control.value;
+    if (value < 0 || value > 3) {
+      return { starValidation: true };
     }
     return null;
   }
 
   registerRestaurant() {
     const restaurant = this.form.getRawValue();
-    if (restaurant && !restaurant.id) {
-      this.restaurantService.addRestaurant(restaurant);
-    } else if (restaurant && restaurant.id) {
+    console.log(restaurant);
+    if (!restaurant.id) {
+      this.restaurantService.addRestaurant(restaurant).subscribe(() => {
+        this.router.navigate(['/list']);
+      });
+    } else if (restaurant.id) {
       this.restaurantService.editRestaurant(restaurant);
       this.router.navigate(['/list']);
     }
-    // Reset form
-    this.form.patchValue({ name: '', price: '' });
   }
 
   editRestaurant(restaurant?: Restaurant) {
-    if (restaurant) {
-      this.form.patchValue(restaurant);
+    if (restaurant && restaurant.id) {
+      this.restaurantService.findById(restaurant.id).subscribe((response: any) => {
+        this.form.patchValue(response);
+      });
     }
   }
 }

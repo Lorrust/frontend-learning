@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../../../models/restaurant.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,44 +9,28 @@ import { HttpClient } from '@angular/common/http';
 export class RestaurantService {
 
   constructor(private http: HttpClient) { }
-
-  private id = 0;
   private restaurants: Array<Restaurant> = [];
 
-  // addRestaurant(restaurant: Restaurant) {
-  //   restaurant.id = this.id;
-  //   this.restaurants.push(restaurant);
-  //   this.id++;
-  // }
-
   addRestaurant(restaurant: Restaurant) {
-    this.http.post('http://localhost:8080/restaurants', restaurant).subscribe((response: any) => {
-      console.log(response);
-    }
-    )
-  };
+    console.log(restaurant);
+    return this.http.post('http://localhost:8080/restaurante', restaurant);
+  }
 
   removeRestaurant(id: number) {
-    this.restaurants = this.restaurants.filter(restaurant => restaurant.id !== id);
+    return this.http.delete(`http://localhost:8080/restaurante/${id}`);
   }
 
   get getRestaurants() {
-    return this.restaurants;
-  }
+    return this.http.get('http://localhost:8080/restaurante')
+  };
 
-  findById(id: number): Restaurant | undefined {
-    return this.restaurants.find(restaurant => restaurant.id == id);
+  findById(id: number): Observable<Restaurant> {
+    return this.http.get<Restaurant>(`http://localhost:8080/restaurante/${id}`);
   }
 
   editRestaurant(restaurant: Restaurant) {
-    this.restaurants.forEach(restaurantList => {
-      if (restaurantList.id === restaurant.id) {
-        restaurantList.nome = restaurant.nome;
-        restaurantList.cnpj = restaurant.cnpj;
-        restaurantList.estrelas = restaurant.estrelas;
-        restaurantList.tipoComida = restaurant.tipoComida;
-        return;
-      }
-    });
+    this.http.put(`http://localhost:8080/restaurante/${restaurant.id}`, restaurant).subscribe(() => {
+    }
+    );
   }
 }

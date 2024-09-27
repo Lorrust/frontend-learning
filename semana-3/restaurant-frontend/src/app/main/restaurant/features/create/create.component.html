@@ -2,9 +2,9 @@
   <h2>New Restaurant</h2>
   <form [formGroup]="form" (submit)="registerRestaurant()">
     <div>
-      <label for="name">Name</label>
+      <label for="nome">Name</label>
       <input
-        FormControlName="name"
+        formControlName="nome"
         type="text"
         id="restaurant"
         name="restaurant"
@@ -12,24 +12,29 @@
     </div>
     <div>
       <label for="cnpj">CNPJ</label>
-      <input FormControlName="cnpj" type="text" id="cnpj" name="cnpj" />
+      <input formControlName="cnpj" type="text" id="cnpj" name="cnpj" />
     </div>
     <div>
-      <label for="stars">Stars</label>
-      <input formControlName="stars" type="number" id="stars" name="stars" />
+      <label for="estrelas">Stars</label>
+      <input
+        formControlName="estrelas"
+        type="number"
+        id="estrelas"
+        name="estrelas"
+      />
     </div>
     <div>
-      <label for="cuisine">Cuisine</label>
-      <select formControlName="cuisine" name="cuisine" id="cuisine">
-        <option value="ITALIAN">Italian</option>
-        <option value="FRENCH">French</option>
-        <option value="JAPANESE">Japanese</option>
-        <option value="TRADITIONAL">Traditional</option>
-        <option value="OTHER">Other</option>
+      <label for="tipoComida">Cuisine</label>
+      <select formControlName="tipoComida" name="tipoComida" id="tipoComida">
+        <option value="ITALIANA">Italian</option>
+        <option value="FRANCESA">French</option>
+        <option value="JAPONESA">Japanese</option>
+        <option value="TRADICIONAL">Traditional</option>
+        <option value="OUTRO">Other</option>
       </select>
     </div>
     <div>
-      <button type="submit">Submit</button>
+      <button type="submit" [disabled]="!this.form.valid">Submit</button>
     </div>
   </form>
 </section>

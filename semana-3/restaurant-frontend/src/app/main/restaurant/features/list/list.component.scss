@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  thead {
+    text-align: center;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 12px 15px;
+  }
+}
+
+#actions {
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
