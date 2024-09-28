@@ -10,26 +10,27 @@ export class RestaurantService {
 
   constructor(private http: HttpClient) { }
   private restaurants: Array<Restaurant> = [];
+  private apiUrl = 'http://localhost:8080/restaurante';
 
   addRestaurant(restaurant: Restaurant) {
     console.log(restaurant);
-    return this.http.post('http://localhost:8080/restaurante', restaurant);
+    return this.http.post(this.apiUrl, restaurant);
   }
 
   removeRestaurant(id: number) {
-    return this.http.delete(`http://localhost:8080/restaurante/${id}`);
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   get getRestaurants() {
-    return this.http.get('http://localhost:8080/restaurante')
+    return this.http.get(this.apiUrl);
   };
 
   findById(id: number): Observable<Restaurant> {
-    return this.http.get<Restaurant>(`http://localhost:8080/restaurante/${id}`);
+    return this.http.get<Restaurant>(`${this.apiUrl}/${id}`);
   }
 
   editRestaurant(restaurant: Restaurant) {
-    this.http.put(`http://localhost:8080/restaurante/${restaurant.id}`, restaurant).subscribe(() => {
+    this.http.put(`${this.apiUrl}/${restaurant.id}`, restaurant).subscribe(() => {
     }
     );
   }

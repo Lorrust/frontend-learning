@@ -6,6 +6,9 @@ import { ClientComponent } from './client.component';
 import { CreateComponent } from './features/create/create.component';
 import { ListComponent } from './features/list/list.component';
 import { SubmenuComponent } from './components/submenu/submenu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RestaurantRoutingModule } from '../restaurant/restaurant-routing.module';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { SubmenuComponent } from './components/submenu/submenu.component';
   ],
   imports: [
     CommonModule,
-    ClientRoutingModule
+    RestaurantRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class ClientModule { }
